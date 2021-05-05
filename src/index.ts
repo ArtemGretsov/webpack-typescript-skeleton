@@ -1,6 +1,7 @@
-const example = () => {
-  // eslint-disable-next-line no-console
-  alert('example')
+const example = (b: string): void => {
+  // eslint-disable-next-line
+  alert(b)
+
 }
 
-example()
+example('its work!')

@@ -1,4 +1,6 @@
 {
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "prettier"],
   "ignorePatterns": ["dist", "node_modules", "webpack"],
   "rules": {
     "max-len": [
@@ -18,7 +20,6 @@
         "maxEOF": 1
       }
     ],
-    "no-var": 1,
     "camelcase": 1,
     "no-new-wrappers": 1,
     "no-nested-ternary": 1,
@@ -29,13 +30,23 @@
     "func-names": [1, "as-needed"],
     "arrow-body-style": 1,
     "semi": [1, "never"],
-    "import/no-extraneous-dependencies": ["off", { "devDependencies": false }]
+    "import/no-extraneous-dependencies": ["off", { "devDependencies": false }],
+    "@typescript-eslint/no-explicit-any": ["error"],
+    "@typescript-eslint/explicit-function-return-type": ["error"],
+    "@typescript-eslint/brace-style": ["error"],
+    "@typescript-eslint/no-duplicate-imports": ["error"],
+    "@typescript-eslint/no-magic-numbers": ["error"]
   },
   "env": {
     "browser": true,
     "es6": true
   },
-  "extends": ["eslint:recommended", "airbnb-base", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base",
+    "prettier",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -44,7 +55,6 @@
     "ecmaVersion": 11,
     "sourceType": "module"
   },
-  "plugins": ["prettier"],
   "settings": {
     "import/resolver": {
       "webpack": {
